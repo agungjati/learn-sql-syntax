@@ -25,4 +25,15 @@
         Address varchar(255),
     );
 
-[7] 
+[7] Creates a new table using another table 
+    CREATE TABLE Customer AS 
+    SELECT FirstName, LastName, Email, Address
+    FROM User;
+
+[8] Drops exiting table
+    DROP TABLE Customer;
+
+[9] Delete all data inside a table
+    TRUNCATE TABLE Customer;
+
+[10]

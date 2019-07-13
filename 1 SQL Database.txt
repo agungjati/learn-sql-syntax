@@ -1,0 +1,28 @@
+[1] Statement creates database called MyData
+    CREATE DATABASE MyData;
+
+[2] Show list of databases
+    SHOW DATABASES;
+
+[3] Drop exiting database
+    DROP MyData;
+
+[4] Full backup database
+    BACKUP DATABASE MyData
+    TO DISK 'D:\BackupDataku\MyData.bak';
+
+[5] Backup database with differential mean only changes are backed up
+    BACKUP DATABASE MyData
+    TO DISK 'D:\BackupDataku\MyData.bak'
+    WITH DIFFERENTIAL;
+
+[6] Creates a new table in database
+    CREATE TABLE User(
+        Id int, 
+        FirstName varchar(75),
+        LastName varchar(75),
+        Email varchar(50),
+        Address varchar(255),
+    );
+
+[7] 

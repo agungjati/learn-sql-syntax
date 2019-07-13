@@ -36,4 +36,54 @@
 [9] Delete all data inside a table
     TRUNCATE TABLE Customer;
 
-[10]
+[10] ALTER TABLE is used add, delete, or modify/alter column.
+     - ALTER TABLE User
+       ADD Age int;
+     - ALTER TABLE User
+       DROP Age int;
+     - ALTER TABLE User
+       MODIFY COLUMN FirstName varchar(75) NOT NULL;
+     - ALTER TABLE User
+       ALTER COLUMN FirstName varchar(75) NOT NULL;
+
+[11] Constraints are used to specify rules for data in table
+     Example syntax Constraints :
+     NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT, INDEX
+
+[12] NOT NULL constraint benefit to enforces a column to not null value
+     CREATE TABLE User(
+        Id int NOT NULL, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),
+    );
+
+[13] UNIQUE constraint ensures all values in a column are different 
+     CREATE TABLE User(
+        Id int NOT NULL UNIQUE, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),
+    );
+
+[14] PRIMARY KEY constraint must contain unique values  and not null and it's identifier of a row
+     CREATE TABLE User(
+        Id int NOT NULL PRIMARY KEY, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),
+    );
+    or sample in MySQL
+    CREATE TABLE User(
+        Id int NOT NULL, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),
+        CONSTRAINT PK_User PRIMARY KEY (Id)
+    );
+
+[15] 

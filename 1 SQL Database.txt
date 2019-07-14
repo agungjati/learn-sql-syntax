@@ -161,6 +161,30 @@
      );
 
 [21] INSERT INTO statement is used to insert new record in a table
-     INSERT INTO Users (Id, FirstName, LastName) VALUES (1, 'Anita', 'Nisa')
+     INSERT INTO 
+     Users (Id, FirstName, LastName, Email, Address) 
+     VALUES (1, 'Anita', 'Nisa', 'nisa@gmail.com', 'Indonesia');
      or another example
-     INSERT INTO Users VALUES (1, 'Anita', 'Nisa')
+     INSERT INTO Users 
+     VALUES (1, 'Anita', 'Nisa', 'nisa@gmail.com', 'Indonesia');
+
+[22] UPDATE statement used to modify the exiting record
+     UPDATE User
+     SET FirstName='Serafine', LastName='Felishia'
+     WHERE Id=1;
+
+[23] DELETE statement deletes records
+     delete all records : DELETE FROM User;
+     using condition    : DELETE FROM User WHERE Id=1;
+
+[24] TOP, LIMIT, and ROWNUM clause used to retreives apart records 
+     In SQL Server/ MS Access, 
+        select one record  : SELECT TOP 1 * FROM User;
+        select half record : SELECT TOP 50 PERCENT * FROM User;
+     In MySQL, SELECT * FROM User LIMIT 1;
+     In Oracle, SELECT * FROM User WHERE ROWNUM <= 3;
+
+
+
+
+

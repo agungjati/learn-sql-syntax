@@ -86,4 +86,76 @@
         CONSTRAINT PK_User PRIMARY KEY (Id)
     );
 
-[15] 
+[15] FOREIGN KEY constraint is a key used to link two tables together
+     CREATE TABLE User(
+        UserId int NOT NULL PRIMARY KEY, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),   
+        CustomerId int FOREIGN KEY REFERENCES Customer(CustomerId)
+     );
+     or sample in MySQL
+     CREATE TABLE User(
+        UserId int NOT NULL, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),
+        PRIMARY KEY (UserId),
+        FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
+     );
+
+[16] CHECK constraint is used to check certain value by a condition for single a column
+     CREATE TABLE User(
+        UserId int NOT NULL PRIMARY KEY, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),  
+        Age int CHECK (Age >= 18), 
+     );
+     or sample in MySQL
+     CREATE TABLE User(
+        UserId int NOT NULL PRIMARY KEY, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255),  
+        Age int,
+        CHECK (Age >= 18), 
+     );
+
+[17] DEFAULT constraint is used to provide dafault value for a column
+     CREATE TABLE User(
+        UserId int NOT NULL PRIMARY KEY, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255) DEFAULT 'Tanjung Uma',  
+     );
+
+[18] Drop constraint, to drop constraint using ALTER TABLE statement 
+     ALTER TABLE User
+     ALTER Address DROP DEFAULT
+
+[19] INDEX statement is used to indexes in table. Indexes benefit to retreive data faster than usual
+     CREATE INDEX Idx_FirstName_LastName
+     ON User(FirstName, LastName)
+    
+[20] AUTO INCREMENT defines column to increase its value
+     CREATE TABLE User(
+        UserId int NOT NULL AUTO_INCREMENT, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255) DEFAULT 'Tanjung Uma',  
+     );
+    for set start value
+    CREATE TABLE User(
+        UserId int NOT NULL AUTO_INCREMENT=1000, 
+        FirstName varchar(75) NOT NULL,
+        LastName varchar(75),
+        Email varchar(50) NOT NULL,
+        Address varchar(255) DEFAULT 'Tanjung Uma',  
+     );

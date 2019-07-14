@@ -30,5 +30,29 @@
     sorting as descending        : SELECT * FROM Users ORDER BY FirstName DESC;
     multiple order               : SELECT * FROM Users ORDER BY FirstName ASC, LastName DESC;
 
-[6] 
+[6] TOP, LIMIT, and ROWNUM clause used to retreives apart records 
+     In SQL Server/ MS Access, 
+        select one record  : SELECT TOP 1 * FROM User;
+        select half record : SELECT TOP 50 PERCENT * FROM User;
+     In MySQL, SELECT * FROM User LIMIT 1;
+     In Oracle, SELECT * FROM User WHERE ROWNUM <= 3;
+
+[7] MIN() and MAX() functions 
+     return the smallest value : SELECT MIN(Age) FROM User
+     return the largest value  : SELECT MAX(Age) FROM User
+
+[8] Data type date
+    Format  : Date, YYYY-MM-DD
+              DateTime/ Timestamp, YYYY-MM-DD HH:MI:SS
+              YEAR, YYYY or YY
+    Example : SELECT * FROM User WHERE BirthDate='1999-02-01'
+
+[9] CREATE VIEW statement like a function in programming you can call it and return result-set of a sql statement
+    create view : CREATE VIEW [FirstName LastName] AS
+                  SELECT FirstName, LastName FROM User
+                  WHERE Age >= 18
+    call it frequntly : SELECT * FROM [FirstName LastName]
+             
+[10] 
+
 

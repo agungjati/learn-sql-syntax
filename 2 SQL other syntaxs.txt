@@ -1,0 +1,33 @@
+[1] SELECT statement is used to select data from a database
+    for all columns   : SELECT * FROM Users;
+    for apart columns : SELECT FirstName, LastName FROM Users;
+
+[2] SELECT DISTINCT is used to return different values
+    SELECT DISTINCT FirstName FROM Users;
+
+[3] WHERE clause filters a records by condition
+    SELECT * FROM Users WHERE Age >= 18;
+
+[4] Operators in statement condition
+    Operator Name                           Example
+    =        equal                          SELECT * FROM Users WHERE FirstName='Anita';
+    >        greater than                   SELECT * FROM Users WHERE Age > 10;
+    <        less than                      SELECT * FROM Users WHERE Age < 5;
+    >=       greater than or equal          SELECT * FROM Users WHERE Age >= 18;
+    <=       less than or equal             SELECT * FROM Users WHERE Age <= 10;
+    <>       not equal                      SELECT * FROM Users WHERE FirstName <> 'Anisa';
+    BETWEEN  between a certain range        SELECT * FROM Users WHERE Age BETWEEN 10 AND 15;
+    LIKE     search for a pattern           SELECT * FROM Users WHERE FirstName LIKE '%Anita%';
+    IN       like equal but multiple values SELECT * FROM Users WHERE FirstName IN  ('Anita','Anisa');
+    AND      for multiple condition which   SELECT * FROM Users WHERE Age <= 10 AND Age > 5;
+             is all conditions must be true
+    OR       for multiple condition which   SELECT * FROM Users WHERE FirstName='Anita' OR FirstName='Anisa';
+             is it will true if any true    
+    NOT      not equal                      SELECT * FROM Users WHERE NOT FirstName='Anisa';
+
+[5] ORDER BY keyword is used to sorts data in ascending or descending
+    default sorting as ascending : SELECT * FROM Users ORDER BY FirstName;
+    sorting as descending        : SELECT * FROM Users ORDER BY FirstName DESC;
+    multiple order               : SELECT * FROM Users ORDER BY FirstName ASC, LastName DESC;
+
+[6] 

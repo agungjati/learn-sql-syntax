@@ -159,3 +159,8 @@
         Email varchar(50) NOT NULL,
         Address varchar(255) DEFAULT 'Tanjung Uma',  
      );
+
+[21] INSERT INTO statement is used to insert new record in a table
+     INSERT INTO Users (Id, FirstName, LastName) VALUES (1, 'Anita', 'Nisa')
+     or another example
+     INSERT INTO Users VALUES (1, 'Anita', 'Nisa')

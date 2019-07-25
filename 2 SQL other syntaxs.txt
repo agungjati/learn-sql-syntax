@@ -53,6 +53,99 @@
                   WHERE Age >= 18
     call it frequntly : SELECT * FROM [FirstName LastName]
              
-[10] 
+[10] COUNT() function is used to counts how much data in table
+     SELECT COUNT(*) FROM User
 
+[11] AVG() function to averages of value columns
+     SELECT AVG(Age) FROM User
 
+[12] SUM() function to total sum of value columns
+     SELECT SUM(Age) FROM User
+
+[13] LIKE operator is used in WHERE clause to search pattern in a column
+     using wildcard percent / % :
+     display data by column FirstName that value 'Agung' :  SELECT * FROM User WHERE  FirstName LIKE '%Agung%
+     display data by column FirstName that starting word 'A' : SELECT * FROM User WHERE  FirstName LIKE 'A%
+     display data by column FirstName that ending word 'g' : SELECT * FROM User WHERE  FirstName LIKE '%g
+     using wildcard underscore / _ :
+     display data  by column FirstName that have 4 word and have letter 'a' in mid : SELECT * FROM User FirstName LIKE '_a__'
+
+[14] IN operator like operator equal but multiple values
+     SELECT * FROM User WHERE FirstName IN ('Agung', 'Handaru')
+     SELECT * FROM User WHERE FirstName IN (SELECT LastName FROM User)
+
+[15] BETWEEN operator 
+     SELECT * FROM User WHERE Age BETWEEN 10 AND 18
+     similiar syntax
+     SELECT * FROM User WHERE Age > 10 AND Age < 18
+
+[16] Aliases, to replaces name of column
+     SELECT FirstName AS 'Nama Depan' FROM User
+
+[17] INNER JOIN clause is used to returns data that matching in both tables
+     SELECT User.FirstName, Transaction.TransactionId, Transaction.SubTotal 
+     FROM Transaction
+     INNER JOIN User on Transaction.UserId ON User.Id
+
+[18] LEFT JOIN clause is used to select data that matching in both tables and select all data left table (Transaction)
+     SELECT User.FirstName, Transaction.TransactionId, Transaction.SubTotal 
+     FROM Transaction
+     LEFT JOIN User on Transaction.UserId ON User.Id
+
+[19] RIGHT JOIN clause is used to select data that matching in both tables and select all data right table (User)
+     SELECT User.FirstName, Transaction.TransactionId, Transaction.SubTotal 
+     FROM Transaction
+     RIGHT JOIN User on Transaction.UserId ON User.Id
+    
+[20] FULL OUTER JOIN clause is used to select all data both tables, although any values not matching and will display null value for any columns
+     SELECT User.FirstName, Transaction.TransactionId, Transaction.SubTotal 
+     FROM Transaction
+     FULL OUTER JOIN User on Transaction.UserId ON User.Id
+
+[21] SELF JOIN same as INNER JOIN
+     SELECT User.FirstName, Transaction.TransactionId, Transaction.SubTotal 
+     FROM Transaction, User
+     WHERE Transaction.UserId = User.Id
+
+[22] UNION operator, to combine the result set of two or more select statement, rules of usage :
+     numbers of column must same, columns have same data type, and columns must also be in same order
+     SELECT Country FROM Customer
+     UNION
+     SELECT Country FROM Supplier;
+     select all, although duplicate values
+     SELECT Country FROM Customer
+     UNION ALL
+     SELECT Country FROM Supplier;
+
+[23] GROUP BY statement is used to groups data that have same value by specific column 
+     SELECT * FROM Supplier
+     GROUP BY Country;     
+
+[24] HAVING clause was added, because WHERE clause could not be used with aggregate function, it's clause similiar usage as WHERE clause
+     SELECT * FROM Supplier
+     WHERE FirstName = 'Anisa'
+     GROUP BY City
+     HAVING Age >= 18;
+
+[25] EXISTS operator returns true if subquery was not returned null
+     SELECT * FROM Supplier
+     WHERE EXISTS (SELECT * FROM User WHERE User.Id = Supplier.UsrId)
+
+[26] ANY and ALL operators such as EXISTS 
+     SELECT FirstName, LastName FROM User
+     WHERE Id = ANY (SELECT UserId FROM Transaction WHERE SubTotal >= 100000);
+     another example
+     SELECT FirstName, LastName FROM User
+     WHERE Id = ALL (SELECT UserId FROM Transaction WHERE SubTotal >= 100000);
+
+[27] CASE statement
+     SELECT FirstName, LastName,
+     CASE
+        WHEN Age < 18 THEN "Masih anak - anak"
+        WHEN Age >= 18 AND Age <= 30 THEN "Masih dewasa"
+        else "Sudah tua"
+     END AS Status
+     FROM User
+
+[28] STORE PROCEDURE is a prepared code that you can save, so the code can be reused over and over again.
+     
